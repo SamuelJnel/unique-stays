@@ -5,12 +5,12 @@ const reservationSchema = new Schema({
   checkIn: {
     type: Date,
     default: Date.now(),
-    required: [true, "Must enter a check-in date"],
+    required: true,
   },
   checkOut: {
     type: Date,
     default: Date.now(),
-    required: [true, "Must enter a check-out date"],
+    required: true,
   },
 
   numberOfRooms: { type: Number, min: 0, max: 8 },
