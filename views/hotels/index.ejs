@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <% if (typeof guest !== 'undefined') { %>
+      <span style="margin-right: 40vw">Welcome, <%= guest.name %></span>
+      <a href="/Logout">Log Out</a>
+      <% } else { %>
+      <a href="/auth/google">Login with Google</a>
+      <% } %>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/hotels">Hotels</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reservations">My Bookings</a>
+        </li>
+      </ul>
+    </nav>
+    <h1>Hotels Page</h1>
+    <div class="hotels-container">
+      <div class="single-hotel-container">
+        <img src="/images/Igloo.jpg" alt="igloo-img" />
+        <h3><%=hotels[0].name%></h3>
+        <a href="/reservations/<%=hotels[0]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        ><br />
+      </div>
+      <div class="single-hotel-container">
+        <img src="/images/treetop.jpg" alt="treetop-img" />
+        <h3><%=hotels[1].name%></h3>
+        <a href="/reservations/<%=hotels[1]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        >
+      </div>
+
+      <div class="single-hotel-container">
+        <img src="/images/beach.jpg" alt="beach-house-img" />
+        <h3><%=hotels[2].name%></h3>
+        <a href="/reservations/<%=hotels[2]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        >
+      </div>
+
+      <div class="single-hotel-container">
+        <img src="/images/hobbit.jpg" alt="hobbit-hole-img" />
+        <h3><%=hotels[3].name%></h3>
+        <a href="/reservations/<%=hotels[3]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        >
+      </div>
+
+      <div class="single-hotel-container">
+        <img src="/images/underWater.jpg" alt="underwater-hotel-img" />
+        <h3><%=hotels[4].name%></h3>
+        <a href="/reservations/<%=hotels[4]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        >
+      </div>
+
+      <div class="single-hotel-container">
+        <img src="/images/sky.jpg" alt="skypod-img" />
+        <h3><%=hotels[5].name%></h3>
+        <a href="/reservations/<%=hotels[5]._id%>"
+          ><button class="btn btn-info center-button">Book a Room</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

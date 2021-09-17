@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is my update page</h1>
+
+    <form action="/reservations/<%=hotelId%>?_method=PUT" method="POST">
+      <div class="form-outline datepicker" style="width: 300px">
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="exampleDatepicker2"
+          name="checkIn"
+          value="<%=reservation.checkIn%> "
+        />
+        <label class="form-label">Check In</label>
+      </div>
+
+      <div class="form-outline datepicker" style="width: 300px; margin: 10px">
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="exampleDatepicker2"
+          name="checkOut"
+          value="<%=reservation.checkOut%> "
+        />
+        <label class="form-label">Check Out</label>
+      </div>
+
+      <label>Number of Rooms</label>
+      <select name="numberOfRooms">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option></select
+      ><br />
+
+      <label>Number of Guests</label>
+      <select name="numberOfGuests">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option></select
+      ><br />
+
+      <h3>Room Type</h3>
+
+      <label>Select Room Type</label>
+      <select name="roomType">
+        <option value="StandardRoom">Standard Room</option>
+        <option value="DeluxeRoom">Deluxe Room</option>
+        <option value="LuxurySuite">Luxury Suite</option></select
+      ><br />
+
+      <label>Price</label>
+      <input type="text" name="price" value="" /><br />
+      <br />
+
+      <input
+        type="submit"
+        class="btn btn-info center-button"
+        value="update Reservation"
+      />
+    </form>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+    ></script>
+  </body>
+</html>
