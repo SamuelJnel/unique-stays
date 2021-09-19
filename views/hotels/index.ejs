@@ -12,76 +12,55 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
+    <div class="login-container">
       <% if (typeof guest !== 'undefined') { %>
-      <span style="margin-right: 40vw">Welcome, <%= guest.name %></span>
+      <div class="welcome-msg">Welcome, <%= guest.name %></div>
       <a href="/Logout">Log Out</a>
       <% } else { %>
-      <a href="/auth/google">Login with Google</a>
+      <div class="logout-btn">
+        <a href="/auth/google">Login with Google</a>
+      </div>
       <% } %>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light nav-color">
       <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
+        <li class="nav-box">
+          <div class="">
+            <a class="nav-link active" href="/">Home</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/hotels">Hotels</a>
+          <div class="">
+            <a class="nav-link" href="/hotels">Hotels</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/reservations">My Bookings</a>
+        <li class="">
+          <div class="nav-box">
+            <a class="nav-link" href="/reservations">My Bookings</a>
+          </div>
         </li>
       </ul>
     </nav>
-    <h1>Hotels Page</h1>
-    <div class="hotels-container">
-      <div class="single-hotel-container">
-        <img src="/images/Igloo.jpg" alt="igloo-img" />
-        <h3><%=hotels[0].name%></h3>
-        <a href="/reservations/<%=hotels[0]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        ><br />
-      </div>
-      <div class="single-hotel-container">
-        <img src="/images/treetop.jpg" alt="treetop-img" />
-        <h3><%=hotels[1].name%></h3>
-        <a href="/reservations/<%=hotels[1]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        >
-      </div>
 
-      <div class="single-hotel-container">
-        <img src="/images/beach.jpg" alt="beach-house-img" />
-        <h3><%=hotels[2].name%></h3>
-        <a href="/reservations/<%=hotels[2]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        >
+    <div id="hotel-section">
+      <%hotels.forEach(function(el){%>
+      <div class="hotel-content-container">
+        <div class="hotel-container">
+          <img src="<%=el.image%>" class="hotel-img" />
+          <div class="hotel-text-content">
+            <h3><%=el.name %></h3>
+            <h4><%=el.location%></h4>
+            <p><%=el.details%></p>
+          </div>
+        </div>
+        <div class="hotel-button">
+          <a href="/reservations/<%=el._id%>"
+            ><button class="btn button-color">Book a Room</button></a
+          >
+        </div>
       </div>
-
-      <div class="single-hotel-container">
-        <img src="/images/hobbit.jpg" alt="hobbit-hole-img" />
-        <h3><%=hotels[3].name%></h3>
-        <a href="/reservations/<%=hotels[3]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        >
-      </div>
-
-      <div class="single-hotel-container">
-        <img src="/images/underWater.jpg" alt="underwater-hotel-img" />
-        <h3><%=hotels[4].name%></h3>
-        <a href="/reservations/<%=hotels[4]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        >
-      </div>
-
-      <div class="single-hotel-container">
-        <img src="/images/sky.jpg" alt="skypod-img" />
-        <h3><%=hotels[5].name%></h3>
-        <a href="/reservations/<%=hotels[5]._id%>"
-          ><button class="btn btn-info center-button">Book a Room</button></a
-        >
-      </div>
+      <%})%>
     </div>
   </body>
 </html>

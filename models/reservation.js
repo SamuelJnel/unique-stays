@@ -21,9 +21,9 @@ const reservationSchema = new Schema({
 
   price: { type: Number },
 
-  guestId: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  guestId: [{ type: Schema.Types.ObjectId, ref: "Guest" }],
 
-  hotelID: [{ type: Schema.Types.ObjectId, ref: "Hotel" }],
+  hotelId: [{ type: Schema.Types.ObjectId, ref: "Hotel" }],
 });
 
 module.exports = mongoose.model("Reservation", reservationSchema);

@@ -19,20 +19,31 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light nav-color">
       <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
+        <li class="nav-box">
+          <div class="">
+            <a class="nav-link active" href="/">Home</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/hotels">Hotels</a>
+          <div class="">
+            <a class="nav-link" href="/hotels">Hotels</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/reservations">My Bookings</a>
+        <li class="">
+          <div class="nav-box">
+            <a class="nav-link" href="/reservations">My Bookings</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -57,18 +68,9 @@
           id="exampleDatepicker2"
           name="checkOut"
           value="<%=checkOutDate%>"
+          min="<%=checkInDate%>"
         />
         <label class="form-label">Check Out</label>
-      </div>
-
-      <div class="form-outline datepicker" data-mdb-format="dd, mmm, yyyy">
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="exampleDatepicker4"
-          placeholder="dd, mmm, yyyy"
-        />
-        <label for="exampleDatepicker4" class="form-label">Example label</label>
       </div>
 
       <label>Number of Rooms</label>
@@ -104,10 +106,6 @@
         <option value="LuxurySuite">Luxury Suite</option></select
       ><br />
 
-      <label>Price</label>
-      <input type="text" name="price" value="" /><br />
-      <br />
-
       <input
         type="submit"
         class="btn btn-info center-button"
@@ -115,6 +113,78 @@
       />
     </form>
 
+    <%if(hotels.name == 'Arctic Resort'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/cold-bed3.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/cold-bed2.jpg" class="room-img" />
+      </div>
+      <div></div>
+      <img src="/images/cold-bed.jpg" class="room-img" />
+    </div>
+    <% } else if(hotels.name == 'Tsara Komba'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/beach3.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/beach2.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/beach1.jpg" class="room-img" />
+      </div>
+    </div>
+    <% } else if(hotels.name == 'Hobbiton'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/hobbit3.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/hobbit2.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/hobbit1.jpg" class="room-img" />
+      </div>
+    </div>
+    <% } else if(hotels.name == 'Ice Hotel'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/ice1.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/ice2.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/ice.jpg" class="room-img" />
+      </div>
+    </div>
+    <% } else if(hotels.name == 'The Muraka'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/water1.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/water2.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/water3.jpg" class="room-img" />
+      </div>
+    </div>
+    <% } else if(hotels.name == 'Keemala Resort'){ %>
+    <div class="room-img-container">
+      <div>
+        <img src="/images/tree3.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/tree1.jpg" class="room-img" />
+      </div>
+      <div>
+        <img src="/images/tree2.jpg" class="room-img" />
+      </div>
+    </div>
+    <% } %>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"

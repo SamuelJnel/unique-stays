@@ -12,16 +12,22 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light nav-color">
       <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
+        <li class="nav-box">
+          <div class="">
+            <a class="nav-link active" href="/">Home</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/hotels">Hotels</a>
+          <div class="">
+            <a class="nav-link" href="/hotels">Hotels</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/reservations">My Bookings</a>
+        <li class="">
+          <div class="nav-box">
+            <a class="nav-link" href="/reservations">My Bookings</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -38,11 +44,13 @@
       <p>Price: <%= el.price %></p>
 
       <form action="/reservations/<%=el._id%>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-info">Cancel Reservation</button>
+        <button type="submit" class="btn button-color">
+          Cancel Reservation
+        </button>
       </form>
 
       <a href="/reservations/<%=el._id%>/edit "
-        ><button class="btn btn-info">Update Reservation</button></a
+        ><button class="btn button-color">Update Reservation</button></a
       >
 
       <%}) %>

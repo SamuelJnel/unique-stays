@@ -24,8 +24,8 @@
   <body>
     <h1>This is my update page</h1>
 
-    <form action="/reservations/<%=hotelId%>?_method=PUT" method="POST">
-      <div class="form-outline datepicker" style="width: 300px">
+    <form action="/reservations/<%=reservation.id%>?_method=PUT" method="POST">
+      <div class="form-outline datepicker" style="width: 300px; margin: 10px">
         <input
           type="datetime-local"
           class="form-control"
@@ -86,7 +86,7 @@
 
       <input
         type="submit"
-        class="btn btn-info center-button"
+        class="btn button-color"
         value="update Reservation"
       />
     </form>
