@@ -19,15 +19,27 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
 
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Document</title>
+    <title>Book Reservation</title>
   </head>
   <body>
+    <div class="login-container">
+      <% if (typeof guest !== 'undefined') { %>
+      <div class="welcome-msg">Welcome, <%= guest.name %></div>
+      <a href="/Logout">Log Out</a>
+      <% } else { %>
+      <div class="logout-btn">
+        <a href="/auth/google">Login with Google</a>
+      </div>
+      <% } %>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-light nav-color">
       <ul class="nav justify-content-center">
         <li class="nav-box">
@@ -47,81 +59,115 @@
         </li>
       </ul>
     </nav>
-    <h1>This is the reservations page</h1>
+
+    <h3 class="hotel-name-book-pg"><%=hotels.name%></h3>
 
     <form action="/reservations/<%=hotelId%>" method="POST">
-      <div class="form-outline datepicker" style="width: 300px">
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="exampleDatepicker2"
-          name="checkIn"
-          value="<%=checkInDate%>"
-        />
-        <label class="form-label">Check In</label>
+      <div class="date-container">
+        <div class="form-outline datepicker check-in">
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="exampleDatepicker2"
+            name="checkIn"
+            value="<%=checkInDate%>"
+            min="<%=checkInDate%>"
+          />
+          <label class="form-label">Check In</label>
+        </div>
+
+        <div class="form-outline datepicker check-in">
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="exampleDatepicker2"
+            name="checkOut"
+            value="<%=checkOutDate%>"
+            min="<%=checkInDate%>"
+          />
+          <label class="form-label">Check Out</label>
+        </div>
       </div>
 
-      <div class="form-outline datepicker" style="width: 300px; margin: 10px">
-        <input
-          type="datetime-local"
-          class="form-control"
-          id="exampleDatepicker2"
-          name="checkOut"
-          value="<%=checkOutDate%>"
-          min="<%=checkInDate%>"
-        />
-        <label class="form-label">Check Out</label>
+      <div class="form-container">
+      <div class="form-option">
+        <div class="options-container room-left">
+          <label>Number of Rooms</label>
+          <select name="numberOfRooms">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+
+        <div class="options-container">
+          <label>Number of Guests</label>
+          <select name="numberOfGuests">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
       </div>
-
-      <label>Number of Rooms</label>
-      <select name="numberOfRooms">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option></select
-      ><br />
-
-      <label>Number of Guests</label>
-      <select name="numberOfGuests">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option></select
-      ><br />
-
-      <h3>Room Type</h3>
-
-      <label>Select Room Type</label>
-      <select name="roomType">
+      
+<div class="room-price-container">
+  <div class="type-container">
+      <label>Room Type</label>
+      <select name="roomType" class="room-type">
+        <option value="">Select One</option>
         <option value="StandardRoom">Standard Room</option>
         <option value="DeluxeRoom">Deluxe Room</option>
         <option value="LuxurySuite">Luxury Suite</option></select
-      ><br />
+      >
+    </div>
 
+    <div class="price-container">
+      <label>Price Per Room:</label>
+      <input
+        class="results"
+        type="text"
+        name="price"
+        placeholder="$CAD"
+        value=""
+        readonly
+      />
+    </div>
+    </div>
+
+    <div class="book-res-btn">
       <input
         type="submit"
         class="btn btn-info center-button"
         value="Book Reservation"
       />
+    </div>
     </form>
+  </div>
 
     <%if(hotels.name == 'Arctic Resort'){ %>
     <div class="room-img-container">
       <div>
+
+        <h5>Standard Room</h5>
         <img src="/images/cold-bed3.jpg" class="room-img" />
       </div>
       <div>
+
+        <h5>Deluxe Room</h5>
         <img src="/images/cold-bed2.jpg" class="room-img" />
       </div>
-      <div></div>
+      <div>
+        <h5>Luxury Suite</h5>
       <img src="/images/cold-bed.jpg" class="room-img" />
     </div>
     <% } else if(hotels.name == 'Tsara Komba'){ %>
@@ -189,5 +235,6 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
     ></script>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>

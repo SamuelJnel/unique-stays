@@ -5,13 +5,13 @@ const reservationsControllers = require("../controllers/reservations");
 
 router.get("/", isLoggedIn, reservationsControllers.details);
 
-router.get("/:id", reservationsControllers.index);
+router.get("/:id", isLoggedIn, reservationsControllers.index);
 
-router.post("/:id", isLoggedIn, reservationsControllers.createReservation);
+router.post("/:id", reservationsControllers.createReservation);
 
 router.delete("/:reservationId", reservationsControllers.deleteReservation);
 
-router.get("/:id/edit", reservationsControllers.editReservations);
+router.get("/:id/edit", isLoggedIn, reservationsControllers.editReservations);
 
 router.put("/:id", reservationsControllers.update);
 

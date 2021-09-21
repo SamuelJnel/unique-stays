@@ -95,9 +95,19 @@ function deleteReservation(req, res) {
 
 function editReservations(req, res) {
   Reservation.findById(req.params.id, function (err, reservation) {
+    const currentCheckIn = reservation.checkIn.toISOString().slice(0, 16);
+    const currentCheckOut = reservation.checkIn.toISOString().slice(0, 16);
     hotelIds = reservation.hotelId;
 
-    res.render("reservations/edit", { hotelIds, reservation });
+    console.log(currentCheckIn);
+    console.log(currentCheckOut);
+
+    res.render("reservations/edit", {
+      hotelIds,
+      reservation,
+      currentCheckIn,
+      currentCheckOut,
+    });
   });
 }
 

@@ -19,7 +19,7 @@ const reservationSchema = new Schema({
 
   roomType: { type: String },
 
-  price: { type: Number },
+  price: { type: String },
 
   guestId: [{ type: Schema.Types.ObjectId, ref: "Guest" }],
 

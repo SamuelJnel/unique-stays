@@ -23,7 +23,7 @@ router.get(
 
 router.get("/Logout", function (req, res) {
   req.logout();
-  res.redirect("/");
+  res.redirect("/hotels");
 });
 
 module.exports = router;

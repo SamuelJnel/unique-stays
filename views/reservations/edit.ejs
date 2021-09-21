@@ -22,6 +22,36 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="login-container">
+      <% if (typeof guest !== 'undefined') { %>
+      <div class="welcome-msg">Welcome, <%= guest.name %></div>
+      <a href="/Logout">Log Out</a>
+      <% } else { %>
+      <div class="logout-btn">
+        <a href="/auth/google">Login with Google</a>
+      </div>
+      <% } %>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-color">
+      <ul class="nav justify-content-center">
+        <li class="nav-box">
+          <div class="">
+            <a class="nav-link active" href="/">Home</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="">
+            <a class="nav-link" href="/hotels">Hotels</a>
+          </div>
+        </li>
+        <li class="">
+          <div class="nav-box">
+            <a class="nav-link" href="/reservations">My Bookings</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
     <h1>This is my update page</h1>
 
     <form action="/reservations/<%=reservation.id%>?_method=PUT" method="POST">
@@ -31,7 +61,8 @@
           class="form-control"
           id="exampleDatepicker2"
           name="checkIn"
-          value="<%=reservation.checkIn%> "
+          value="<%=currentCheckIn%>"
+          min="<%=currentCheckIn%>"
         />
         <label class="form-label">Check In</label>
       </div>
@@ -42,7 +73,8 @@
           class="form-control"
           id="exampleDatepicker2"
           name="checkOut"
-          value="<%=reservation.checkOut%> "
+          value="<%=currentCheckIn%>"
+          min="<%=currentCheckIn%>"
         />
         <label class="form-label">Check Out</label>
       </div>
@@ -73,15 +105,15 @@
 
       <h3>Room Type</h3>
 
-      <label>Select Room Type</label>
-      <select name="roomType">
+      <select name="roomType" class="room-type">
+        <option value="">Select One</option>
         <option value="StandardRoom">Standard Room</option>
         <option value="DeluxeRoom">Deluxe Room</option>
         <option value="LuxurySuite">Luxury Suite</option></select
       ><br />
 
       <label>Price</label>
-      <input type="text" name="price" value="" /><br />
+      <input class="results" type="text" name="price" value="" readonly /><br />
       <br />
 
       <input
@@ -94,5 +126,6 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
     ></script>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>
