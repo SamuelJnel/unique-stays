@@ -9,6 +9,12 @@ const hotelSchema = new Schema({
   details: { type: String },
 
   location: { type: String },
+
+  standard: { type: String },
+
+  deluxe: { type: String },
+
+  suite: { type: String },
 });
 
 module.exports = mongoose.model("Hotel", hotelSchema);

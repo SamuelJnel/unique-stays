@@ -43,27 +43,35 @@
       </ul>
     </nav>
 
-    <% reservations.forEach(function(el){%>
-    <h3>Reservation Details:</h3>
-    <h4><%=hotels.name%></h4>
-    <div>
-      <p>Check-in Date: <%= el.checkIn.toDateString() %></p>
-      <p>Check-out Date: <%= el.checkOut.toDateString() %></p>
-      <p>Number of Guests: <%= el.numberOfGuests %></p>
-      <p>Number of Rooms: <%= el.numberOfRooms %></p>
-      <p>Room Type: <%= el.roomType %></p>
-      <p>Price: <%= el.price %></p>
+    <div class="details-container">
+      <% reservations.forEach(function(el){%>
 
-      <form action="/reservations/<%=el._id%>?_method=DELETE" method="POST">
-        <button type="submit" class="btn button-color">
-          Cancel Reservation
-        </button>
-      </form>
-
-      <a href="/reservations/<%=el._id%>/edit "
-        ><button class="btn button-color">Update Reservation</button></a
-      >
-
+      <div class="details-each-container">
+        <h3>Reservation Details</h3>
+        <p>Check-in Date: <%= el.checkIn.toDateString() %></p>
+        <p>Check-out Date: <%= el.checkOut.toDateString() %></p>
+        <p>Number of Guests: <%= el.numberOfGuests %></p>
+        <p>Number of Rooms: <%= el.numberOfRooms %></p>
+        <p>Room Type: <%= el.roomType %></p>
+        <p>Price: <%= el.price %></p>
+        <div class="btn-contaner">
+          <div class="delete-btn">
+            <form
+              action="/reservations/<%=el._id%>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit" class="btn button-color btn-bold">
+                Cancel
+              </button>
+            </form>
+          </div>
+          <div class="update-btn">
+            <a href="/reservations/<%=el._id%>/edit "
+              ><button class="btn button-color btn-bold">Update</button></a
+            >
+          </div>
+        </div>
+      </div>
       <%}) %>
     </div>
   </body>

@@ -12,16 +12,19 @@ module.exports = {
 };
 
 function details(req, res) {
-  Guest.find({}, function (err, guest) {
-    Reservation.find({}, function (err, reservations) {
-      Hotel.find({}, function (err, hotels) {
-        res.render("reservations/show", {
-          guest,
-          user: req.user,
-          hotels,
-          reservations,
-        });
-      });
+  const userId = res.locals.guest.id;
+  let idOfHotel = [];
+
+  Reservation.find({ guestId: userId }, function (err, reservations) {
+    console.log(reservations);
+
+    // reservations.forEach(function (el) {
+    //   idOfHotel.push(el.hotelId);
+    //   return idOfHotel;
+    // });
+
+    res.render("reservations/show", {
+      reservations,
     });
   });
 }
@@ -38,8 +41,6 @@ function index(req, res) {
   const hotelId = req.params.id;
 
   Hotel.findById(req.params.id, function (err, hotels) {
-    console.log(hotels.name);
-
     res.render("reservations/index", {
       guest: req.user,
       hotels,
@@ -78,7 +79,7 @@ async function createReservation(req, res) {
 function deleteReservation(req, res) {
   const filter = req.params.reservationId;
 
-  Reservation.deleteOne(req.params.id, function (err, reservations) {
+  Reservation.deleteOne(req.params.id, function (err) {
     Guest.findById(res.locals.guest, function (err, guests) {
       console.log(guests.reservation);
 
@@ -95,18 +96,19 @@ function deleteReservation(req, res) {
 
 function editReservations(req, res) {
   Reservation.findById(req.params.id, function (err, reservation) {
-    const currentCheckIn = reservation.checkIn.toISOString().slice(0, 16);
-    const currentCheckOut = reservation.checkIn.toISOString().slice(0, 16);
-    hotelIds = reservation.hotelId;
+    let currentCheckIn = reservation.checkIn.toISOString().slice(0, 16);
+    let currentCheckOut = reservation.checkOut.toISOString().slice(0, 16);
 
-    console.log(currentCheckIn);
-    console.log(currentCheckOut);
+    let hotelDetails = reservation.hotelId;
+    Hotel.findById(reservation.hotelId);
 
-    res.render("reservations/edit", {
-      hotelIds,
-      reservation,
-      currentCheckIn,
-      currentCheckOut,
+    Hotel.findById(reservation.hotelId, function (err, hotel) {
+      res.render("reservations/edit", {
+        reservation,
+        currentCheckIn,
+        currentCheckOut,
+        hotel,
+      });
     });
   });
 }

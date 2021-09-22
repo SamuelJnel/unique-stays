@@ -17,8 +17,6 @@ a {
   background-color: #5d8a86;
   border-radius: 5px;
 }
-.nav-box {
-}
 
 .button-color {
   background-color: #8db28f;
@@ -38,6 +36,13 @@ a {
 
 .welcome-msg {
   margin-right: 80%;
+}
+
+.google-logo {
+  width: 25px;
+  height: 25px;
+  padding-bottom: 5px;
+  margin-left: 2px;
 }
 
 /* Home page section */
@@ -145,16 +150,11 @@ a {
 
 /* Reservation booking page */
 
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .room-img-container {
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 20px;
 }
 
 .room-img {
@@ -167,10 +167,12 @@ a {
 .date-container {
   display: flex;
   justify-content: center;
-  margin: 30px 30px 10px 30px;
+  margin: 30px 30px 12px 30px;
   font-size: 20px;
   font-weight: bold;
   color: black;
+  width: 70%;
+  margin: auto;
 }
 
 .check-in {
@@ -184,38 +186,94 @@ a {
 
 .hotel-name-book-pg {
   text-align: center;
-  margin-top: 10px;
+  width: 70%;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 18px;
 }
 
 .form-option {
   display: flex;
   justify-content: center;
+  width: 70%;
+  margin: auto;
   font-size: 20px;
+  margin-top: 12px;
+  margin-bottom: 18px;
 }
 
 .options-container {
-  margin: 10px;
-}
-
-.room-left {
-  margin-right: 50px;
+  display: flex;
+  margin-right: 30px;
 }
 
 .room-price-container {
   display: flex;
   justify-content: center;
-  width: 80%;
-  margin-bottom: 10px;
+  width: 70%;
+  margin: auto;
   font-size: 20px;
 }
 
-.price-container {
-  margin-left: 50px;
+.price-label {
+  margin-left: 30px;
 }
-.type-container {
-  margin-left: 80px;
+
+.results {
+  width: 200px;
+}
+
+.push {
+  margin-left: 35px;
 }
 
 .book-res-btn {
-  margin: 15px;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.btn-bold {
+  font-weight: bold;
+}
+
+/* Reservation details Page */
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  align-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 15px;
+  width: 80%;
+  height: 80vh;
+}
+
+.details-each-container {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(2, 109, 82, 0.2);
+  background-color: #f8f8f8;
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 18px;
+  align-self: center;
+}
+
+.delete-btn {
+  margin-bottom: 5px;
+  width: 90px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.update-btn {
+  width: 90px;
+  display: inline-block;
+  margin-left: 100px;
 }

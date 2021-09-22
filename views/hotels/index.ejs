@@ -18,7 +18,9 @@
       <a href="/Logout">Log Out</a>
       <% } else { %>
       <div class="logout-btn">
-        <a href="/auth/google">Login with Google</a>
+        <a href="/auth/google"
+          >Login with <img src="/images/google.jpg" class="google-logo"
+        /></a>
       </div>
       <% } %>
     </div>
@@ -56,7 +58,7 @@
         </div>
         <div class="hotel-button">
           <a href="/reservations/<%=el._id%>"
-            ><button class="btn button-color">Book a Room</button></a
+            ><button class="btn button-color btn-bold">Book a Room</button></a
           >
         </div>
       </div>

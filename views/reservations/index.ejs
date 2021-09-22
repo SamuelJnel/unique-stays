@@ -91,8 +91,9 @@
 
       <div class="form-container">
       <div class="form-option">
-        <div class="options-container room-left">
-          <label>Number of Rooms</label>
+        <div class="options-container">
+          <label>Number of Rooms </label>
+          <div class="room-left">
           <select name="numberOfRooms">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -104,9 +105,10 @@
             <option value="8">8</option>
           </select>
         </div>
+        </div>
 
         <div class="options-container">
-          <label>Number of Guests</label>
+          <label>Number of Guests </label>
           <select name="numberOfGuests">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -121,18 +123,22 @@
       </div>
       
 <div class="room-price-container">
-  <div class="type-container">
+  <div class="push"></div>
+  <div class="room-type-left">
       <label>Room Type</label>
+    
       <select name="roomType" class="room-type">
         <option value="">Select One</option>
         <option value="StandardRoom">Standard Room</option>
         <option value="DeluxeRoom">Deluxe Room</option>
-        <option value="LuxurySuite">Luxury Suite</option></select
-      >
+        <option value="LuxurySuite">Luxury Suite</option>
+      </select>
+      
     </div>
 
-    <div class="price-container">
-      <label>Price Per Room:</label>
+    
+      
+      <label class="price-label">Price Per Room:</label>
       <input
         class="results"
         type="text"
@@ -147,90 +153,29 @@
     <div class="book-res-btn">
       <input
         type="submit"
-        class="btn btn-info center-button"
+        class="btn button-color btn-bold"
         value="Book Reservation"
       />
     </div>
     </form>
   </div>
 
-    <%if(hotels.name == 'Arctic Resort'){ %>
-    <div class="room-img-container">
-      <div>
+  <div class="room-img-container">
+    <div>
+      <h5>Standard Room</h5>
+      <img src="<%=hotels.standard%>" class="room-img">
+    </div>
+    <div>
+      <h5>Deluxe Room</h5>
+      <img src="<%=hotels.deluxe%>" class="room-img">
+    </div>
+    <div>
+      <h5>Luxury Suite</h5>
+      <img src="<%=hotels.suite%> " class="room-img" />
+    </div>
+  </div>
 
-        <h5>Standard Room</h5>
-        <img src="/images/cold-bed3.jpg" class="room-img" />
-      </div>
-      <div>
-
-        <h5>Deluxe Room</h5>
-        <img src="/images/cold-bed2.jpg" class="room-img" />
-      </div>
-      <div>
-        <h5>Luxury Suite</h5>
-      <img src="/images/cold-bed.jpg" class="room-img" />
-    </div>
-    <% } else if(hotels.name == 'Tsara Komba'){ %>
-    <div class="room-img-container">
-      <div>
-        <img src="/images/beach3.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/beach2.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/beach1.jpg" class="room-img" />
-      </div>
-    </div>
-    <% } else if(hotels.name == 'Hobbiton'){ %>
-    <div class="room-img-container">
-      <div>
-        <img src="/images/hobbit3.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/hobbit2.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/hobbit1.jpg" class="room-img" />
-      </div>
-    </div>
-    <% } else if(hotels.name == 'Ice Hotel'){ %>
-    <div class="room-img-container">
-      <div>
-        <img src="/images/ice1.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/ice2.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/ice.jpg" class="room-img" />
-      </div>
-    </div>
-    <% } else if(hotels.name == 'The Muraka'){ %>
-    <div class="room-img-container">
-      <div>
-        <img src="/images/water1.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/water2.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/water3.jpg" class="room-img" />
-      </div>
-    </div>
-    <% } else if(hotels.name == 'Keemala Resort'){ %>
-    <div class="room-img-container">
-      <div>
-        <img src="/images/tree3.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/tree1.jpg" class="room-img" />
-      </div>
-      <div>
-        <img src="/images/tree2.jpg" class="room-img" />
-      </div>
-    </div>
-    <% } %>
+    
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
