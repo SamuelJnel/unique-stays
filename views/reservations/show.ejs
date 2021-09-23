@@ -50,15 +50,15 @@
         <img src="<%=el.hotelId[0].image%>%> " class="details-img" />
         <div class="details-text">
           <h3><%=el.hotelId[0].name%></h3>
-
-          <h5>Reservation Details</h5>
-          <p>Check-in Date: <%= el.checkIn.toDateString() %></p>
-          <p>Check-out Date: <%= el.checkOut.toDateString() %></p>
-          <p>Number of Guests: <%= el.numberOfGuests %></p>
-          <p>Number of Rooms: <%= el.numberOfRooms %></p>
-          <p>Room Type: <%= el.roomType %></p>
-          <p>Price: <%= el.price %></p>
+          <h5>Reservation Details:</h5>
+          <p>Check-in Date: <span><%= el.checkIn.toDateString() %></span></p>
+          <p>Check-out Date: <span><%= el.checkOut.toDateString() %></span></p>
+          <p>Number of Guests: <span><%= el.numberOfGuests%></span></p>
+          <p>Number of Rooms: <span><%= el.numberOfRooms %></span></p>
+          <p>Room Type: <span><%= el.roomType %></span></p>
+          <p>Price: <span><%= el.price %></span></p>
         </div>
+
         <div class="btn-contaner">
           <div class="delete-btn">
             <form

@@ -252,31 +252,32 @@ a {
 .details-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
   flex-wrap: wrap;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 10px;
   width: 85%;
   height: 90vh;
+  margin-top: 25px;
 }
 
 .details-each-container {
   width: 325px;
   height: 595px;
-  margin: 20px;
+  margin: 0 20px 0 20px;
   box-shadow: 0 4px 8px 0 rgba(2, 109, 82, 0.2);
   background-color: #f8f8f8;
   transition: 0.3s;
   border-radius: 5px;
-  /* padding: 5px; */
   font-size: 18px;
-  align-self: center;
 }
 
 .details-text {
   text-align: center;
   margin-top: 7px;
+}
+
+span {
+  font-weight: bold;
 }
 
 .delete-btn {
