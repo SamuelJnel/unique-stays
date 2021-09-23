@@ -67,13 +67,10 @@ function deleteReservation(req, res) {
 
   Reservation.deleteOne(req.params.id, function (err) {
     Guest.findById(res.locals.guest, function (err, guests) {
-      console.log(guests.reservation);
-
       const index = guests.reservation.indexOf(filter);
-      console.log(index);
+
       guests.reservation.splice(index, 1);
       guests.save(function (err) {
-        console.log(guests);
         res.redirect("/reservations");
       });
     });
@@ -85,7 +82,6 @@ function editReservations(req, res) {
     let currentCheckIn = reservation.checkIn.toISOString().slice(0, 16);
     let currentCheckOut = reservation.checkOut.toISOString().slice(0, 16);
 
-    let hotelDetails = reservation.hotelId;
     Hotel.findById(reservation.hotelId);
 
     Hotel.findById(reservation.hotelId, function (err, hotel) {

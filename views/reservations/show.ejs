@@ -14,7 +14,7 @@
   <body>
     <div class="login-container">
       <% if (typeof guest !== 'undefined') { %>
-      <div class="welcome-msg">Welcome, <%= guest.name %></div>
+      <div class="welcome-msg">Hello, <%= guest.name %></div>
       <a href="/Logout">Log Out</a>
       <% } else { %>
       <div class="logout-btn">
@@ -42,6 +42,8 @@
         </li>
       </ul>
     </nav>
+
+    <%if (typeof reservations !== 'null'){%>
 
     <div class="details-container">
       <% reservations.forEach(function(el){%>
@@ -79,5 +81,10 @@
       </div>
       <%}) %>
     </div>
+    <%} else{%>
+    <div>
+      <h2>No Reservations</h2>
+    </div>
+    <%} %>
   </body>
 </html>
