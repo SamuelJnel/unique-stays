@@ -46,7 +46,7 @@ function index(req, res) {
 }
 
 async function createReservation(req, res) {
-  const hotelDetails = req.params.id;
+  const hotelID = req.params.id;
 
   const loggedInGuest = await Guest.findOne({
     googleId: res.locals.guest.googleId,
@@ -54,24 +54,18 @@ async function createReservation(req, res) {
 
   const bookedHotel = await Hotel.findOne({ _id: req.params.id });
 
-  const bookedHotelName = bookedHotel.name;
-  console.log(bookedHotelName);
-
   const booking = new Reservation(req.body);
   booking.guestId.push(loggedInGuest._id); // put guest id into reservation
   booking.hotelId.push(bookedHotel._id); // put hotel id into reservation
-
   await booking.save();
 
   loggedInGuest.reservation.push(booking._id); ///putting reservation into guest
 
-  await loggedInGuest.save();
-
-  // console.log(`this is logged in guest${loggedInGuest}`);
-  // console.log(`this is booking${booking}`);
-  // console.log(`this is booked hotel${bookedHotel}`);
-
-  res.redirect(`/reservations`);
+  await loggedInGuest.save(function (err) {
+    //Ask out this function
+    if (err) return res.redirect(`/reservations/${hotelID}`);
+    res.redirect(`/reservations`);
+  });
 }
 
 function deleteReservation(req, res) {

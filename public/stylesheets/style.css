@@ -269,6 +269,7 @@ a {
   transition: 0.3s;
   border-radius: 5px;
   font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .details-text {

@@ -17,7 +17,7 @@ const reservationSchema = new Schema({
 
   numberOfGuests: { type: Number, min: 0, max: 8 },
 
-  roomType: { type: String },
+  roomType: { type: String, required: true },
 
   price: { type: String },
 
