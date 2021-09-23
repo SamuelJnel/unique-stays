@@ -240,28 +240,43 @@ a {
 
 /* Reservation details Page */
 
+.details-img {
+  width: 325px;
+  height: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f8f8f8;
+  transition: 0.3s;
+  border-radius: 5px 5px 0 0;
+}
+
 .details-container {
   display: flex;
   justify-content: center;
   align-items: center;
-
   align-content: center;
   flex-wrap: wrap;
   margin: auto;
   margin-top: 15px;
-  width: 80%;
-  height: 80vh;
+  width: 85%;
+  height: 90vh;
 }
 
 .details-each-container {
+  width: 325px;
+  height: 595px;
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(2, 109, 82, 0.2);
   background-color: #f8f8f8;
   transition: 0.3s;
   border-radius: 5px;
-  padding: 5px;
+  /* padding: 5px; */
   font-size: 18px;
   align-self: center;
+}
+
+.details-text {
+  text-align: center;
+  margin-top: 7px;
 }
 
 .delete-btn {
@@ -274,5 +289,5 @@ a {
 .update-btn {
   width: 90px;
   display: inline-block;
-  margin-left: 100px;
+  margin-left: 130px;
 }

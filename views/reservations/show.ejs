@@ -47,13 +47,18 @@
       <% reservations.forEach(function(el){%>
 
       <div class="details-each-container">
-        <h3>Reservation Details</h3>
-        <p>Check-in Date: <%= el.checkIn.toDateString() %></p>
-        <p>Check-out Date: <%= el.checkOut.toDateString() %></p>
-        <p>Number of Guests: <%= el.numberOfGuests %></p>
-        <p>Number of Rooms: <%= el.numberOfRooms %></p>
-        <p>Room Type: <%= el.roomType %></p>
-        <p>Price: <%= el.price %></p>
+        <img src="<%=el.hotelId[0].image%>%> " class="details-img" />
+        <div class="details-text">
+          <h3><%=el.hotelId[0].name%></h3>
+
+          <h5>Reservation Details</h5>
+          <p>Check-in Date: <%= el.checkIn.toDateString() %></p>
+          <p>Check-out Date: <%= el.checkOut.toDateString() %></p>
+          <p>Number of Guests: <%= el.numberOfGuests %></p>
+          <p>Number of Rooms: <%= el.numberOfRooms %></p>
+          <p>Room Type: <%= el.roomType %></p>
+          <p>Price: <%= el.price %></p>
+        </div>
         <div class="btn-contaner">
           <div class="delete-btn">
             <form

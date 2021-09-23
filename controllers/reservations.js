@@ -11,21 +11,15 @@ module.exports = {
   update,
 };
 
-function details(req, res) {
+async function details(req, res) {
   const userId = res.locals.guest.id;
-  let idOfHotel = [];
 
-  Reservation.find({ guestId: userId }, function (err, reservations) {
-    console.log(reservations);
-
-    // reservations.forEach(function (el) {
-    //   idOfHotel.push(el.hotelId);
-    //   return idOfHotel;
-    // });
-
-    res.render("reservations/show", {
-      reservations,
-    });
+  let reservations = await Reservation.find({ guestId: userId }).populate(
+    "hotelId"
+  );
+  console.log(reservations[0].hotelId);
+  res.render("reservations/show", {
+    reservations,
   });
 }
 
@@ -60,18 +54,22 @@ async function createReservation(req, res) {
 
   const bookedHotel = await Hotel.findOne({ _id: req.params.id });
 
+  const bookedHotelName = bookedHotel.name;
+  console.log(bookedHotelName);
+
   const booking = new Reservation(req.body);
   booking.guestId.push(loggedInGuest._id); // put guest id into reservation
   booking.hotelId.push(bookedHotel._id); // put hotel id into reservation
+
   await booking.save();
 
   loggedInGuest.reservation.push(booking._id); ///putting reservation into guest
 
   await loggedInGuest.save();
 
-  console.log(`this is logged in guest${loggedInGuest}`);
-  console.log(`this is booking${booking}`);
-  console.log(`this is booked hotel${bookedHotel}`);
+  // console.log(`this is logged in guest${loggedInGuest}`);
+  // console.log(`this is booking${booking}`);
+  // console.log(`this is booked hotel${bookedHotel}`);
 
   res.redirect(`/reservations`);
 }
