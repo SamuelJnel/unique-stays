@@ -43,8 +43,6 @@
       </ul>
     </nav>
 
-    <%if (typeof reservations !== 'null'){%>
-
     <div class="details-container">
       <% reservations.forEach(function(el){%>
 
@@ -81,10 +79,5 @@
       </div>
       <%}) %>
     </div>
-    <%} else{%>
-    <div>
-      <h2>No Reservations</h2>
-    </div>
-    <%} %>
   </body>
 </html>

@@ -12,8 +12,6 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK,
     },
     function (accessToken, refreshToken, profile, cb) {
-      console.log("this is the profile from passport js");
-      console.log(profile);
       Guest.findOne({ googleId: profile.id }, function (err, guest) {
         if (err) return cb(err);
         if (guest) {
