@@ -25,3 +25,6 @@ Node, Express, Mongoose, MongoDB, HTML 5, CSS 3, JavaScript ES6
 https://unique-stays.herokuapp.com/y
 
 ## Next Steps
+
+A details page for each hotel where reviews can be made.
+The details page will display al the reviews.
