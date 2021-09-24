@@ -11,7 +11,7 @@ The user has the option to logout of the app on the hotel page or any of the res
 
 ## Screenshots
 
-![App Home Page](/images/UniqueStays)
+![App Home Page](images/UniqueStays)
 ![App Hotel Page](/images/UniqueStays-1)
 ![App Booking Page](/images/UniqueStays-2)
 ![App Details Page](/images/UniqueStays-3)
