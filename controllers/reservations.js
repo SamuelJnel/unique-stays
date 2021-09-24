@@ -45,6 +45,8 @@ function index(req, res) {
 }
 
 async function createReservation(req, res) {
+  hotelID = req.params.id;
+
   const loggedInGuest = await Guest.findOne({
     googleId: res.locals.guest.googleId,
   });
@@ -54,12 +56,14 @@ async function createReservation(req, res) {
   const booking = new Reservation(req.body);
   booking.guestId.push(loggedInGuest._id); // put guest id into reservation
   booking.hotelId.push(bookedHotel._id); // put hotel id into reservation
-  await booking.save();
+  booking.save(function (err) {
+    if (err) return res.redirect(`/reservations/${hotelID}`);
+    res.redirect(`/reservations`);
+  });
 
   loggedInGuest.reservation.push(booking._id); ///putting reservation into guest
 
   await loggedInGuest.save();
-  res.redirect(`/reservations`);
 }
 
 function deleteReservation(req, res) {
