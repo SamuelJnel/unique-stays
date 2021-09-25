@@ -12,7 +12,6 @@ The user has the option to logout of the app on the hotel page or any of the res
 ## Screenshots
 
 ![App Home Page](public/images/UniqueStays.jpg)
-
 ![App Booking Page](public/images/UniqueStays-2.jpg)
 ![App Details Page](public/images/UniqueStays-3.jpg)
 
@@ -22,7 +21,7 @@ Node, Express, Mongoose, MongoDB, HTML 5, CSS 3, JavaScript ES6
 
 ## Deployment
 
-https://unique-stays.herokuapp.com/y
+https://unique-stays.herokuapp.com/
 
 ## Next Steps
 

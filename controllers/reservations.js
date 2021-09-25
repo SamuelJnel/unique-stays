@@ -54,14 +54,14 @@ async function createReservation(req, res) {
   const bookedHotel = await Hotel.findOne({ _id: req.params.id });
 
   const booking = new Reservation(req.body);
-  booking.guestId.push(loggedInGuest._id); // put guest id into reservation
-  booking.hotelId.push(bookedHotel._id); // put hotel id into reservation
+  booking.guestId.push(loggedInGuest._id);
+  booking.hotelId.push(bookedHotel._id);
   booking.save(function (err) {
     if (err) return res.redirect(`/reservations/${hotelID}`);
     res.redirect(`/reservations`);
   });
 
-  loggedInGuest.reservation.push(booking._id); ///putting reservation into guest
+  loggedInGuest.reservation.push(booking._id);
 
   await loggedInGuest.save();
 }
